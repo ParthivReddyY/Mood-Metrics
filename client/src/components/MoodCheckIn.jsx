@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useApp } from '../context/AppContext';
 
-const MoodCheckIn = ({ onClose }) => {
+const MoodCheckIn = ({ onClose, member }) => {
+  const { addCheckIn, currentUser } = useApp();
   const [selectedMood, setSelectedMood] = useState('');
   const [energy, setEnergy] = useState(3);
   const [stress, setStress] = useState(3);
@@ -16,14 +18,18 @@ const MoodCheckIn = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your API
-    console.log({
+    
+    const checkInData = {
       mood: selectedMood,
       energy,
       stress,
       notes,
-      timestamp: new Date().toISOString()
-    });
+      date: new Date().toISOString().split('T')[0]
+    };
+    
+    // If member is provided, add check-in for that member, otherwise for current user
+    const memberId = member ? member.id : currentUser.id;
+    addCheckIn(memberId, checkInData);
     
     // Show success message and close modal
     alert('Thanks for checking in! Your mood has been recorded.');
@@ -36,7 +42,7 @@ const MoodCheckIn = ({ onClose }) => {
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Quick Mood Check-in
+              {member ? `Check-in for ${member.name}` : 'Quick Mood Check-in'}
             </h2>
             <button
               onClick={onClose}

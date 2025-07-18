@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useApp } from '../context/AppContext';
 import StatsCard from './StatsCard';
 import TeamGrid from './TeamGrid';
 import ProductivityChart from './ProductivityChart';
@@ -6,13 +7,14 @@ import WellnessChart from './WellnessChart';
 import MoodCheckIn from './MoodCheckIn';
 
 const Dashboard = () => {
+  const { teamMembers } = useApp();
   const [showMoodCheckIn, setShowMoodCheckIn] = useState(false);
 
-  // Sample data
+  // Calculate stats from actual data
   const stats = [
     {
       title: 'Team Productivity',
-      value: '87%',
+      value: `${Math.round(teamMembers.reduce((sum, m) => sum + m.productivity, 0) / teamMembers.length)}%`,
       change: '+5%',
       changeType: 'positive',
       icon: 'productivity',
@@ -20,7 +22,7 @@ const Dashboard = () => {
     },
     {
       title: 'Wellness Score',
-      value: '4.2/5',
+      value: `${Math.round(teamMembers.reduce((sum, m) => sum + m.wellnessScore, 0) / teamMembers.length * 10) / 10}/5`,
       change: '+0.3',
       changeType: 'positive',
       icon: 'wellness',
@@ -28,17 +30,17 @@ const Dashboard = () => {
     },
     {
       title: 'Active Members',
-      value: '8/8',
-      change: '100%',
+      value: `${teamMembers.filter(m => m.status === 'online').length}/${teamMembers.length}`,
+      change: `${Math.round((teamMembers.filter(m => m.status === 'online').length / teamMembers.length) * 100)}%`,
       changeType: 'neutral',
       icon: 'team',
       description: 'online today'
     },
     {
       title: 'Burnout Risk',
-      value: 'Low',
-      change: '-2',
-      changeType: 'positive',
+      value: teamMembers.filter(m => m.burnoutRisk === 'High' || m.burnoutRisk === 'Medium').length > 0 ? 'Medium' : 'Low',
+      change: teamMembers.filter(m => m.burnoutRisk === 'High' || m.burnoutRisk === 'Medium').length.toString(),
+      changeType: teamMembers.filter(m => m.burnoutRisk === 'High' || m.burnoutRisk === 'Medium').length > 0 ? 'negative' : 'positive',
       icon: 'alert',
       description: 'members at risk'
     }
