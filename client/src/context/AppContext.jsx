@@ -11,116 +11,122 @@ export const useApp = () => {
 };
 
 export const AppProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({ role: 'manager', id: 1 }); // Toggle between 'manager' and 'member'
+  const [currentUser, setCurrentUser] = useState({ 
+    role: 'manager', 
+    id: 1, 
+    name: 'Parthiv Reddy',
+    email: 'parthivreddy7769@gmail.com'
+  });
+  
   const [teamMembers, setTeamMembers] = useState([
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'Frontend Developer',
-      email: 'sarah.johnson@company.com',
+      name: 'Parthiv Reddy',
+      role: 'Team Manager',
+      email: 'parthivreddy7769@gmail.com',
       mood: 'great',
-      productivity: 92,
+      productivity: 94,
       status: 'online',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastActive: '2 min ago',
-      energy: 4,
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      lastActive: 'Just now',
+      energy: 5,
       stress: 2,
-      notes: 'Working on new dashboard features',
-      wellnessScore: 4.2,
+      notes: 'Leading the team and monitoring project progress',
+      wellnessScore: 4.5,
       burnoutRisk: 'Low',
-      tasksCompleted: 15,
-      hoursWorked: 7.5,
+      tasksCompleted: 16,
+      hoursWorked: 8.0,
       checkIns: [
-        { date: '2025-07-18', mood: 'great', energy: 4, stress: 2, notes: 'Great day, very productive!' },
-        { date: '2025-07-17', mood: 'good', energy: 3, stress: 3, notes: 'Good progress on projects' }
+        { date: '2025-07-18', mood: 'great', energy: 5, stress: 2, notes: 'Great team collaboration today!' },
+        { date: '2025-07-17', mood: 'good', energy: 4, stress: 3, notes: 'Productive planning session' }
       ]
     },
     {
       id: 2,
-      name: 'Mike Chen',
-      role: 'Backend Developer',
-      email: 'mike.chen@company.com',
+      name: 'Lakshmi Reddy',
+      role: 'Full Stack Developer',
+      email: 'vlakshmireddy1812@gmail.com',
       mood: 'good',
-      productivity: 87,
+      productivity: 88,
+      status: 'online',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      lastActive: '3 min ago',
+      energy: 4,
+      stress: 3,
+      notes: 'Working on full stack development tasks',
+      wellnessScore: 4.0,
+      burnoutRisk: 'Low',
+      tasksCompleted: 13,
+      hoursWorked: 8.5,
+      checkIns: [
+        { date: '2025-07-18', mood: 'good', energy: 4, stress: 3, notes: 'Good progress on frontend components' },
+        { date: '2025-07-17', mood: 'okay', energy: 3, stress: 4, notes: 'Backend integration challenges' }
+      ]
+    },
+    {
+      id: 3,
+      name: 'Harshith',
+      role: 'Frontend Developer',
+      email: 'anchuriharshith323@gmail.com',
+      mood: 'great',
+      productivity: 91,
       status: 'online',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
       lastActive: '5 min ago',
+      energy: 4,
+      stress: 2,
+      notes: 'Building responsive UI components',
+      wellnessScore: 4.3,
+      burnoutRisk: 'Low',
+      tasksCompleted: 15,
+      hoursWorked: 7.5,
+      checkIns: [
+        { date: '2025-07-18', mood: 'great', energy: 4, stress: 2, notes: 'Excited about new UI designs!' },
+        { date: '2025-07-17', mood: 'good', energy: 4, stress: 3, notes: 'CSS animations coming along well' }
+      ]
+    },
+    {
+      id: 4,
+      name: 'Guru Charan Reddy',
+      role: 'Backend Developer',
+      email: 'charanreddyguru@gmail.com',
+      mood: 'good',
+      productivity: 85,
+      status: 'online',
+      avatar: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      lastActive: '10 min ago',
       energy: 3,
       stress: 3,
-      notes: 'API development going well',
+      notes: 'Developing APIs and database optimization',
       wellnessScore: 3.8,
       burnoutRisk: 'Low',
       tasksCompleted: 12,
       hoursWorked: 8.0,
       checkIns: [
-        { date: '2025-07-18', mood: 'good', energy: 3, stress: 3, notes: 'Solid day of coding' },
-        { date: '2025-07-17', mood: 'okay', energy: 2, stress: 4, notes: 'Some challenging bugs' }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Emily Rodriguez',
-      role: 'UX Designer',
-      email: 'emily.rodriguez@company.com',
-      mood: 'okay',
-      productivity: 78,
-      status: 'away',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastActive: '1 hour ago',
-      energy: 2,
-      stress: 4,
-      notes: 'Design reviews taking longer than expected',
-      wellnessScore: 3.2,
-      burnoutRisk: 'Medium',
-      tasksCompleted: 8,
-      hoursWorked: 9.0,
-      checkIns: [
-        { date: '2025-07-18', mood: 'okay', energy: 2, stress: 4, notes: 'Busy day with multiple reviews' },
-        { date: '2025-07-17', mood: 'good', energy: 3, stress: 3, notes: 'Good design progress' }
-      ]
-    },
-    {
-      id: 4,
-      name: 'David Kim',
-      role: 'DevOps Engineer',
-      email: 'david.kim@company.com',
-      mood: 'great',
-      productivity: 95,
-      status: 'online',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastActive: 'Just now',
-      energy: 5,
-      stress: 1,
-      notes: 'Successfully deployed new infrastructure',
-      wellnessScore: 4.7,
-      burnoutRisk: 'Low',
-      tasksCompleted: 18,
-      hoursWorked: 7.0,
-      checkIns: [
-        { date: '2025-07-18', mood: 'great', energy: 5, stress: 1, notes: 'Excellent deployment day!' },
-        { date: '2025-07-17', mood: 'great', energy: 4, stress: 2, notes: 'Infrastructure optimization complete' }
+        { date: '2025-07-18', mood: 'good', energy: 3, stress: 3, notes: 'API development going smoothly' },
+        { date: '2025-07-17', mood: 'okay', energy: 3, stress: 4, notes: 'Database queries need optimization' }
       ]
     },
     {
       id: 5,
-      name: 'Lisa Park',
-      role: 'Product Manager',
-      email: 'lisa.park@company.com',
-      mood: 'good',
-      productivity: 89,
-      status: 'online',
-      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastActive: '10 min ago',
-      energy: 4,
-      stress: 3,
-      notes: 'Product roadmap planning session was productive',
-      wellnessScore: 4.0,
-      burnoutRisk: 'Low',
-      tasksCompleted: 14,
-      hoursWorked: 8.5,
+      name: 'Chandra Kiran',
+      role: 'DevOps Engineer',
+      email: 'Chandra6646d@gmail.com',
+      mood: 'okay',
+      productivity: 82,
+      status: 'away',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      lastActive: '30 min ago',
+      energy: 3,
+      stress: 4,
+      notes: 'Setting up CI/CD pipelines and deployment scripts',
+      wellnessScore: 3.5,
+      burnoutRisk: 'Medium',
+      tasksCompleted: 10,
+      hoursWorked: 9.0,
       checkIns: [
-        { date: '2025-07-18', mood: 'good', energy: 4, stress: 3, notes: 'Great stakeholder meeting' },
-        { date: '2025-07-17', mood: 'okay', energy: 3, stress: 4, notes: 'Long planning session' }
+        { date: '2025-07-18', mood: 'okay', energy: 3, stress: 4, notes: 'Deployment issues need attention' },
+        { date: '2025-07-17', mood: 'good', energy: 4, stress: 3, notes: 'CI/CD setup progressing well' }
       ]
     }
   ]);

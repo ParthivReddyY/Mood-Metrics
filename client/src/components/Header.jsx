@@ -11,13 +11,13 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                Team Health Dashboard
+                Mood Metrics Dashboard
               </h1>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                  Development Team • 5 members
+                  Parthiv's Development Team • 5 members
                 </span>
                 <span className="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
                   {currentUser.role === 'manager' ? 'Manager' : 'Team Member'}
