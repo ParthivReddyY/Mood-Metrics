@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "npm run dev",
+    "build": "vite build",
+    "serve": "vite preview"
+  }
+}

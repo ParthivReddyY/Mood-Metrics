@@ -1,12 +1,68 @@
-# React + Vite
+# Mood Metrics - Team Health Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive team health and productivity tracking dashboard built with React, Vite, and TailwindCSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Team Management**: Track mood, productivity, and wellness for all team members
+- **Real-time Analytics**: View productivity trends and wellness metrics
+- **GitHub Integration**: Connect with GitHub for project tracking
+- **Role-based Views**: Manager and team member perspectives
+- **Responsive Design**: Works on desktop and mobile devices
 
-## Expanding the ESLint configuration
+## Team Members
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Parthiv Reddy** - Team Manager
+- **Lakshmi Reddy** - Full Stack Developer
+- **Harshith** - Frontend Developer
+- **Guru Charan Reddy** - Backend Developer
+- **Chandra Kiran** - DevOps Engineer
+
+## Tech Stack
+
+- **Frontend**: React 19, Vite 7
+- **Styling**: TailwindCSS 4
+- **State Management**: React Context API
+- **Deployment**: Vercel
+
+## Local Development
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+4. Preview production build:
+   ```bash
+   npm run preview
+   ```
+
+## Deployment on Vercel
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Vercel will automatically detect the Vite configuration
+4. Deploy with default settings
+
+The app is configured with:
+- Automatic SPA routing
+- Optimized build settings
+- Production-ready configuration
+
+## Environment Variables
+
+No environment variables are required for basic functionality. GitHub integration can be configured through the Settings page.
+
+## License
+
+MIT License
