@@ -1,0 +1,28 @@
+# Node modules
+client/node_modules/
+server/node_modules/
+
+# Build output
+client/dist/
+client/.vite/
+
+# Logs
+*.log
+
+# Environment variables
+server/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Keep files needed for deployment (do not ignore package.json, public/, src/, config/, server.js, vite.config.js, etc.)
